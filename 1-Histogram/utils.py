@@ -68,8 +68,9 @@ def specialize_hists(dst_hists, src_hists=None, src_img=None):
     assert (src_img is not None) or (src_hists is not None)
     if src_hists is None:
         src_hists = get_hist_multiple_channel(src_img)
-    cdf_srcs = np.array([np.cumsum(hist) for hist in src_hists])
-    cdf_dsts = np.array([np.cumsum(hist) for hist in dst_hists])
+    EPS = 1e-6 * np.arange(len(src_hists[0]))
+    cdf_srcs = np.array([np.cumsum(hist) for hist in src_hists + EPS])
+    cdf_dsts = np.array([np.cumsum(hist) for hist in dst_hists + EPS])
     color_map = np.array([
         np.interp(cdf_src, cdf_dst, np.arange(256))
         for cdf_src, cdf_dst in zip(cdf_srcs, cdf_dsts)
