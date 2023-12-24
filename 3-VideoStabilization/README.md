@@ -4,7 +4,10 @@ Python implementation of a [video stabilization algorithm](https://nghiaho.com/?
 
 Demo video from [here](https://www.pexels.com/video/elephants-1171808/)
 
-![Alt text](demo/raw.gif)![Alt text](demo/stab.gif)
+ Input                           |  Output
+:-------------------------------:|:-------------------------:
+![](demo/raw.gif)    |  ![](demo/stab.gif)
+
 
 ## Usage
 
